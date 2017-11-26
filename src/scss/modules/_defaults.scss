@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 62.5%;
+  color: $text_color !important;
+}
+
+body {
+  font: 300 13px/1.6 'Palanquin Dark', sans-serif;
+  color: $text_color;
+  transition: all .4s .3s ease-in;
+  background-color: white;
+}
+
+body, html {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, li {
+  font-family: 'Palanquin', sans-serif;
+}
+
+h1{
+  font-size: 2.2em !important;
+}
+
+h2{
+  font-weight: 300;
+  font-size: 1.6em;
+}
+h3{
+  font-weight: 600;
+  font-style: italic;
+  font-size: 1.6em;
+}
+h4{
+  font-weight: 600;
+  font-size: 1.5em;
+}
+h5{
+  font-weight: 600;
+  font-size: 1.3em;
+  em{
+    padding: 0 10px;
+  }
+}
+p, body, li{
+  font-weight: 500;
+  font-size: 1.3em;
+  em{
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+a:visited{
+  color: #444;
+}

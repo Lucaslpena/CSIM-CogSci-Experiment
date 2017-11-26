@@ -1,0 +1,60 @@
+$text_color: #000;
+$page-margin: 50px;
+$page-margin-mobile: 25px;
+
+$light_text_color: #ddd;
+
+$base : #F7F6F0;
+$darken : darken(#F7F6F0 , 30%);
+$back: darken(#F7F6F0, 40%);
+
+$msOrange: #FBA200;
+$msGreen: #61CD72;
+$msBlue: #4AA3DF;
+
+$base_white: #ffffff;
+
+$i4c_aqua: #1d718b;
+$i4c_teal: #4bbaaa;
+$i4c_skyblue: #92dcce;
+$i4c_pink: #e54896;
+$i4c_dark_pink: #a03466;
+$i4c_purple: #2e043e;
+
+$yokey_yellow: #ffd538;
+$yokey_red: #ff4141;
+$yokey_blue: #0084ff;
+
+$fly_grey: #222121;
+$fly_teal: #4bbbc3;
+
+$sofit_blue: #003a4c;
+$sofitu_teal: #2dacb3;
+$sofit_red: #ed1e79;
+
+$fab_red: #FF3E56;
+
+$breakpoint_reshape: 800px;
+
+$default_canvas_background: #D16F5D;
+
+$default_interaction_color: #F5E417;
+$interaction_timer: .1s;
+$interaction_ease: ease-in;
+
+$animation-initial-delay: 2.5s;
+$iteration: 1;
+
+$aboutMeDelay: 1s;
+$projectWrapperDelay: 1.5s;
+$projectsDelay: 2s;
+$reveal-duration: 500ms;
+$animationCurve: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+
+$backgroundTransitionLength: 800ms;
+$backgroundTransitionDegree: 180deg;
+$backgroundTransitionBackground: 500%;
+$backgroundTransitionTime: 18s;
+
+$appearOffset: 500px;
