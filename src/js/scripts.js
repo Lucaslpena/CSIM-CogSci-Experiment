@@ -15,6 +15,8 @@
 
     currentId = getUrlParameter('id');
     console.log(currentId);
+
+    $('.countdown').timeTo(100, function(){ console.log("finished") });
   });
 
   $( ".segueButton" ).click(function() {
