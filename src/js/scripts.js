@@ -12,18 +12,23 @@
   $(function () {
     currentExam = getUrlParameter('exam');
     console.log(currentExam);
-
     currentId = getUrlParameter('id');
     console.log(currentId);
 
     $('.countdown').timeTo(100, function(){ console.log("finished") });
+
+    sketchpad = new Sketchpad({
+      element: '#sketchpad',
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+
   });
 
   $( ".segueButton" ).click(function() {
     // alert( "Handler for .click() called." );
-
     animateForward(currentShowing);
-
+    currentShowing += 1;
   });
 
 
@@ -34,12 +39,12 @@ function animateForward(val){
   $('.contentWrapper').eq(val).removeClass('showing');
   $('.contentWrapper').eq(val).addClass('hiding');
 
-  setTimeout(function(){
-    $('.contentWrapper').eq(val).removeClass('hiding');
-    $('.contentWrapper').eq(val).addClass('hidden');
+  setTimeout(function(i){
+    $('.contentWrapper').eq(i).removeClass('hiding');
+    $('.contentWrapper').eq(i).addClass('hidden');
 
-    $('.contentWrapper').eq(val+1).addClass('showing');
-  }, 750);
+    $('.contentWrapper').eq(i+1).addClass('showing');
+  }, 750, val);
 }
 
 var getUrlParameter = function getUrlParameter(sParam) {

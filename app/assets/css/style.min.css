@@ -1,10 +1,10 @@
 /*!
- * Online Portfolio
- * Creative Technologist
- * http://lucaslorenzopena.com/
- * @author Lucas Lorenzo Pena
- * @version 2.0
- * Copyright 2017. MIT licensed.
+ * csim-cogsci-experiment
+ * 
+ * 
+ * @author 
+ * @version 1.0.0
+ * Copyright 2017. ISC licensed.
  */
 .clear:after,.clear:before{content:" ";display:table}.clear{*zoom:1}.clear:after{clear:both}.clearFix-170,.clearWidth{min-width:100%}.clearFix-170{min-height:170px}*{box-sizing:border-box;font-smoothing:antialiased;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html{font-size:62.5%;color:#000!important}body{font:300 13px/1.6 Palanquin Dark,sans-serif;color:#000;transition:all .4s ease-in .3s;background-color:#fff}body,html{min-height:100vh}h1,h2,h3,h4,h5,h6,li,p,ul{font-family:Palanquin,sans-serif}h1{font-size:2.2em!important}h2{font-weight:300}h2,h3{font-size:1.6em}h3{font-style:italic}h3,h4{font-weight:600}h4{font-size:1.5em}h5{font-weight:600;font-size:1.3em}h5 em{padding:0 10px}body,li,p{font-weight:500;font-size:1.3em}body em,li em,p em{font-weight:600;font-style:normal}a:visited{color:#444}
 
