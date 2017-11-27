@@ -25,13 +25,17 @@ figure, figcaption {
 .timeTo.timeTo-white div {
   color: black;
   background: #ffffff; /* Old browsers */
-  background: -moz-linear-gradient(top, #ffffff 38%, #cccccc 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(38%,#ffffff), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* IE10+ */
-  background: linear-gradient(to bottom, #ffffff 38%,#cccccc 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+  //background: -moz-linear-gradient(top, #ffffff 38%, #cccccc 100%); /* FF3.6+ */
+  //background: -webkit-gradient(linear, left top, left bottom, color-stop(38%,#ffffff), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+  //background: -webkit-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+  //background: -o-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* Opera 11.10+ */
+  //background: -ms-linear-gradient(top, #ffffff 38%,#cccccc 100%); /* IE10+ */
+  //background: linear-gradient(to bottom, #ffffff 38%,#cccccc 100%); /* W3C */
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+  color: #666;
+  border: 0px solid #000;
+  border-radius: 6px;
 }
 .timeTo.timeTo-black div {
   color: white;

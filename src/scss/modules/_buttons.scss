@@ -85,6 +85,24 @@ $border-color-hover: $color-black;
         animation: stripe-slide 12s infinite linear forwards;
       }
     }
+
+    &:disabled{
+      background-color: $btn-background-hover;
+      color: $btn-color-hover;
+      border-color: $border-color-hover;
+
+      &:after {
+        background-image: repeating-linear-gradient(
+            45deg,
+            $btn-color-hover,
+            $btn-color-hover 1px,
+            transparent 2px,
+            transparent 5px
+        );
+        border-top: 1px solid $border-color-hover;
+        animation: stripe-slide 12s infinite linear forwards;
+      }
+    }
   }
 
   &--large {

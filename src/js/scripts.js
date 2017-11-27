@@ -100,11 +100,21 @@
       console.log("inducement first section!");
       var sen = inducement_sentences[0];
       inducement_sentences.shift();
-      setTimeout(function(s){ $('.inducement').text(s); }, 750, sen);
+      setTimeout(function(s){
+        setNewInducement(s);
+      }, 750, sen);
     }
     else {
       console.log("lost af");
     }
+  };
+
+  function setNewInducement(s){
+    $('.inducement').text(s);
+    $('.segueButton').prop("disabled",true);
+    $('.countdown').timeTo(10, function(){
+      $('.segueButton').prop("disabled",false);
+    });
   };
 
 })(jQuery, window, document);
