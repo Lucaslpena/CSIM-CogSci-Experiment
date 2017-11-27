@@ -513,7 +513,8 @@ body:after {
     .btn--stripe:disabled {
       background-color: #666;
       color: #fff;
-      border-color: #000; }
+      border-color: #000;
+      display: none; }
       .btn--stripe:disabled:after {
         background-image: repeating-linear-gradient(45deg, #fff, #fff 1px, transparent 2px, transparent 5px);
         border-top: 1px solid #000;

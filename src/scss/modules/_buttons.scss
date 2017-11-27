@@ -91,6 +91,8 @@ $border-color-hover: $color-black;
       color: $btn-color-hover;
       border-color: $border-color-hover;
 
+      display: none;
+
       &:after {
         background-image: repeating-linear-gradient(
             45deg,

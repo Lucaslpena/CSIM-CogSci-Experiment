@@ -87,7 +87,6 @@
   $( ".segueButton" ).click(function() {
     animateForward(currentShowing);
     currentShowing += 1;
-    // $('.countdown').timeTo(100, function(){ console.log("finished") });
     // console.log(sketchpad1);
 
     controller(currentShowing);
@@ -118,10 +117,12 @@
   };
 
   function setNewInducement(s){
+    $('.countdown').prop("disabled",false);
     $('.inducement').text(s);
     $('.segueButton').prop("disabled",true);
     $('.countdown').timeTo(10, function(){
       $('.segueButton').prop("disabled",false);
+      $('.countdown').prop("disabled",true);
     });
   };
 
