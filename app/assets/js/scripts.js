@@ -87,6 +87,7 @@
     });
     console.log('initialized all sketchboards');
     sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6];
+    seedSave();
   });
 
   $(".segueButton").click(function () {
@@ -108,10 +109,16 @@
     controller(currentShowing);
   };
 
-  function sendOff(val) {
-    firebase.database().ref('logging/').set({
+  function saveData(val) {
+    firebase.database().ref('logging/' + currentId).set({
       saving: val,
-      atTime: utcDate
+    });
+  }
+  function seedSave(){
+    var timestamp = new Date();
+    firebase.database().ref('logging/' + currentId).set({
+      exam: currentExam,
+      atTime: timestamp.toUTCString()
     });
   }
 
@@ -143,7 +150,7 @@
 
       setTimeout(function () {
         console.log(sketches[0].strokes.length);
-        sendOff(sketches[0].strokes.length);
+        saveData(sketches[0].strokes.length);
         sketches.shift(); //pop from front :D
       },(preppingTime + practiceTime + drawingTime)*100);
     }

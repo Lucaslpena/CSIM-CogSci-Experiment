@@ -79,6 +79,7 @@
     });
     console.log('initialized all sketchboards');
     sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6];
+    seedSave();
   });
 
   $(".segueButton").click(function () {
@@ -103,13 +104,13 @@
   function saveData(val) {
     firebase.database().ref('logging/' + currentId).set({
       saving: val,
-      atTime: utcDate
     });
   }
-  function seedSave(val){
+  function seedSave(){
+    var timestamp = new Date();
     firebase.database().ref('logging/' + currentId).set({
       exam: currentExam,
-      atTime: utcDate
+      atTime: timestamp.toUTCString()
     });
   }
 
