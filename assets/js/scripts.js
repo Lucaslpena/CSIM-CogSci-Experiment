@@ -1,3 +1,11 @@
+/*!
+ * csim-cogsci-experiment
+ * 
+ * 
+ * @author 
+ * @version 1.0.0
+ * Copyright 2017. ISC licensed.
+ */
 (function ($, window, document, undefined) {
 
   'use strict';
