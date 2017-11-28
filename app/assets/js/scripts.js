@@ -43,6 +43,7 @@
   var practiceTime = 5;
   var drawingTime = 5;
   var preppingTime = 5;
+  var inducementTime = 5;
 
   var sketches;
 
@@ -58,36 +59,36 @@
     sketchpad1 = new Sketchpad({
       element: ('#sketchpadPage3'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     sketchpad2 = new Sketchpad({
       element: ('#sketchpadPage4'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     sketchpad3 = new Sketchpad({
       element: ('#sketchpadPage5'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     sketchpad4 = new Sketchpad({
       element: ('#sketchpadPage6'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     sketchpad5 = new Sketchpad({
       element: ('#sketchpadPage7'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     sketchpad6 = new Sketchpad({
       element: ('#sketchpadPage8'),
       width: window.innerWidth,
-      height: 600
+      height: 400
     });
     console.log('initialized all sketchboards');
-    sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6];
     seedSave();
+    sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6]
   });
 
   $(".segueButton").click(function () {
@@ -109,24 +110,28 @@
     controller(currentShowing);
   };
 
-  function saveData(val) {
-    firebase.database().ref('logging/' + currentId).set({
-      saving: val,
+  function saveData(num, val) {
+    console.log("num:" + num);
+    console.log("val:" + val);
+    var key = "strokeCount" + num;
+    firebase.database().ref('logging/' + currentId + 'drawStroke/' + num).set({
+      strokes: val
     });
   }
   function seedSave(){
     var timestamp = new Date();
     firebase.database().ref('logging/' + currentId).set({
-      exam: currentExam,
-      atTime: timestamp.toUTCString()
+      exam: mappingArray[currentExam],
+      startTime: timestamp.toUTCString()
     });
   }
 
   function controller(val) {
+    console.log("currently on:" + val);
     if (val < 5) {
       console.log("intro.. and setup");
     }
-    else if ((val >= 5) && ( val <= 10)) {
+    else if ( ((val >= 5) && ( val <= 10)) || (( val >= 16 ) && ( val <= 20 )) ) {
       console.log("inducement first section!");
       var sen = inducement_sentences[0];
       inducement_sentences.shift();
@@ -134,36 +139,42 @@
         setNewInducement(s);
       }, 750, sen);
     }
-    else if (val > 10) {
-      console.log('drawing');
-      $('.countdown').timeTo(practiceTime, function () {
-        sketches[0].whipe();
-        $('.showing').find('p').text("Now that practice is over you will have 20 seconds to draw the geometric shape without lifting the pen and without tracing the same line more than once. Get ready!");
-        $('.countdown').timeTo(preppingTime, function () {
-          sketches[0].whipe();
-          $('.showing').find('p').text("Draw!");
-          $('.countdown').timeTo(drawingTime, function () {
-            console.log("done");
-          });
-        });
-      });
-
-      setTimeout(function () {
-        console.log(sketches[0].strokes.length);
-        saveData(sketches[0].strokes.length);
-        sketches.shift(); //pop from front :D
-      },(preppingTime + practiceTime + drawingTime)*100);
+    else if (val > 11) {
+     newDrawing();
     }
     else {
       console.log("lost af");
     }
   };
 
+  function newDrawing(){
+    $('.countdown').show();
+    console.log('drawing');
+    $('.countdown').timeTo(practiceTime, function () {
+      sketches[0].whipe();
+      $('.showing').find('p').text("Now that practice is over you will have 20 seconds to draw the geometric shape without lifting the pen and without tracing the same line more than once. Get ready!");
+      $('.countdown').timeTo(preppingTime, function () {
+        sketches[0].whipe();
+        $('.showing').find('p').text("Draw!");
+        $('.countdown').timeTo(drawingTime, function () {
+          console.log("done");
+        });
+      });
+    });
+
+    setTimeout(function () {
+      console.log("drawing - done");
+      console.log(sketches[0].strokes.length);
+      saveData(currentShowing, sketches[0].strokes.length);
+      sketches.shift(); //pop from front :D
+      segue();
+    },(preppingTime + practiceTime + drawingTime)*1000);
+  };
   function setNewInducement(s) {
     $('.countdown').show();
     $('.inducement').text(s);
     $('.segueButton').prop("disabled", true);
-    $('.countdown').timeTo(1, function () {      //TODO - update this!!!
+    $('.countdown').timeTo(inducementTime, function () {
       $('.segueButton').prop("disabled", false);
       $('.countdown').hide();
     });
