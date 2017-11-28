@@ -109,8 +109,8 @@
   function seedSave(){
     var timestamp = new Date();
     firebase.database().ref('logging/' + currentId).set({
-      exam: currentExam,
-      atTime: timestamp.toUTCString()
+      exam: mappingArray[currentExam],
+      startTime: timestamp.toUTCString()
     });
   }
 
