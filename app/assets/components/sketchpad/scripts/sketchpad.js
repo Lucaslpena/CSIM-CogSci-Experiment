@@ -300,3 +300,10 @@ Sketchpad.prototype.redo = function() {
     this.drawStroke(stroke);
   }
 };
+
+Sketchpad.prototype.whipe = function() {
+  this.clear();
+  while (this.strokes.length != 0){
+    this.strokes.pop();
+  }
+};

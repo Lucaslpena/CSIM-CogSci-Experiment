@@ -30,7 +30,7 @@
 <main class="main" role="main">
 
   <!--INTRO-->
-  <div class="contentWrapper showing">
+  <div class="contentWrapper hidden">
     <div class="content">
       <div>
         <h1>Hi!</h1>
@@ -158,26 +158,31 @@
     </div>
   </div>
 
-
-
-
-
-
-
+  <!--The Game-->
+  <div class="contentWrapper showing">
+    <div class="content">
+      <div>
+        <h1>The Game</h1>
+        <p>Thanks for completely the first stage! Now we are going to play a game. You'll have to draw a geometric shapes.  You will have 30 seconds of pracitce then 5 seconds pause and then 10 seconds to finally draw without lifting the pen and without tracing the same line more than once in less than 5 minutes. There will be 8 shapes of different difficulties, you'll only have to complete 4 on this first stage. At the end, there are 3 prices you can win! Complete 5 shapes you'll win 15 €<br>7 shapes = win 30 € !<br>8 shapes = win 50 € !</p>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">Ready?</button>
+    </div>
+  </div>
 
 
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
         <h1>Drawing Exercise</h1>
+        <p>Now is practice. After you'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
         <canvas id="sketchpadPage3">
-
         </canvas>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="backButton">BACKWARDS</button>
-      <button class="segueButton btn btn--stripe">FORWARD</button>
+      <div class="countdown"></div>
     </div>
   </div>
 
@@ -185,14 +190,14 @@
     <div class="content">
       <div>
         <h1>Drawing Exercise</h1>
+        <p>You'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
         <canvas id="sketchpadPage4">
-
         </canvas>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="backButton">BACKWARDS</button>
-      <button class="segueButton btn btn--stripe">FORWARD</button>
+      <div class="countdown"></div>
+      <button class="segueButton btn btn--stripe">Let's Start!</button>
     </div>
   </div>
 
@@ -262,7 +267,19 @@
   <!--<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>-->
 <!--</footer>-->
 
-
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAINsdF9v3unffw7yKrSlQswVkMjsvBTHM",
+    authDomain: "csim-rm2017.firebaseapp.com",
+    databaseURL: "https://csim-rm2017.firebaseio.com",
+    projectId: "csim-rm2017",
+    storageBucket: "",
+    messagingSenderId: "1028164699465"
+  };
+  firebase.initializeApp(config);
+</script>
 <script src="assets/js/scripts.min.js"></script>
 <script src="assets/components/timeTo/jquery.time-to.min.js"></script>
 

@@ -22,7 +22,7 @@
 
   var currentExam = 0;
   var currentId = 0;
-  var currentShowing = 0;
+  var currentShowing = 11;
   var inducement_sentences;
 
   var sketchpad1; // page 3
@@ -31,6 +31,10 @@
   var sketchpad4; // page 6
   var sketchpad5; // page 7
   var sketchpad6; // page 8
+
+  var practiceTime = 5;
+  var drawingTime = 5;
+  var preppingTime = 5;
 
   var sketches;
 
@@ -73,73 +77,111 @@
       width: window.innerWidth,
       height: 600
     });
-    sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6]
+    console.log('initialized all sketchboards');
+    sketches = [sketchpad1, sketchpad2, sketchpad3, sketchpad4, sketchpad5, sketchpad6];
   });
 
-  $( ".segueButton" ).click(function() {
-    animateForward(currentShowing);
-    currentShowing += 1;
-    // console.log(sketchpad1);
-
-    controller(currentShowing);
+  $(".segueButton").click(function () {
+    segue();
   });
 
-  $( ".backButton" ).on( "click", function() {
+
+  $(".backButton").on("click", function () {
     animateBackward(currentShowing);
     currentShowing -= 1;
     console.log(sketchpad1.strokes.length);
     console.log(sketches[0].strokes.length);
   });
 
-  function controller(val){
-    if (val < 5){
+  function segue() {
+    animateForward(currentShowing);
+    currentShowing += 1;
+    // console.log(sketchpad1);
+    controller(currentShowing);
+  };
+
+  function saveData(val) {
+    firebase.database().ref('logging/' + currentId).set({
+      saving: val,
+      atTime: utcDate
+    });
+  }
+  function seedSave(val){
+    firebase.database().ref('logging/' + currentId).set({
+      exam: currentExam,
+      atTime: utcDate
+    });
+  }
+
+  function controller(val) {
+    if (val < 5) {
       console.log("intro.. and setup");
     }
-    else if ((val >= 5)&&( val <= 12)){
+    else if ((val >= 5) && ( val <= 10)) {
       console.log("inducement first section!");
       var sen = inducement_sentences[0];
       inducement_sentences.shift();
-      setTimeout(function(s){
+      setTimeout(function (s) {
         setNewInducement(s);
       }, 750, sen);
+    }
+    else if (val > 10) {
+      console.log('drawing');
+      $('.countdown').timeTo(practiceTime, function () {
+        sketches[0].whipe();
+        $('.showing').find('p').text("Now that practice is over you will have 20 seconds to draw the geometric shape without lifting the pen and without tracing the same line more than once. Get ready!");
+        $('.countdown').timeTo(preppingTime, function () {
+          sketches[0].whipe();
+          $('.showing').find('p').text("Draw!");
+          $('.countdown').timeTo(drawingTime, function () {
+            console.log("done");
+          });
+        });
+      });
+
+      setTimeout(function () {
+        console.log(sketches[0].strokes.length);
+        saveData(sketches[0].strokes.length);
+        sketches.shift(); //pop from front :D
+      },(preppingTime + practiceTime + drawingTime)*100);
     }
     else {
       console.log("lost af");
     }
   };
 
-  function setNewInducement(s){
-    $('.countdown').prop("disabled",false);
+  function setNewInducement(s) {
+    $('.countdown').show();
     $('.inducement').text(s);
-    $('.segueButton').prop("disabled",true);
-    $('.countdown').timeTo(10, function(){
-      $('.segueButton').prop("disabled",false);
-      $('.countdown').prop("disabled",true);
+    $('.segueButton').prop("disabled", true);
+    $('.countdown').timeTo(1, function () {      //TODO - update this!!!
+      $('.segueButton').prop("disabled", false);
+      $('.countdown').hide();
     });
   };
 
 })(jQuery, window, document);
 
-function animateForward(val){
+function animateForward(val) {
   $('.contentWrapper').eq(val).removeClass('showing');
   $('.contentWrapper').eq(val).addClass('hiding');
 
-  setTimeout(function(i){
+  setTimeout(function (i) {
     $('.contentWrapper').eq(i).removeClass('hiding');
     $('.contentWrapper').eq(i).addClass('hidden');
 
-    $('.contentWrapper').eq(i+1).addClass('showing');
+    $('.contentWrapper').eq(i + 1).addClass('showing');
   }, 750, val);
 }
-function animateBackward(val){
+function animateBackward(val) {
   $('.contentWrapper').eq(val).removeClass('showing');
   $('.contentWrapper').eq(val).addClass('hiding');
 
-  setTimeout(function(i){
+  setTimeout(function (i) {
     $('.contentWrapper').eq(i).removeClass('hiding');
     $('.contentWrapper').eq(i).addClass('hidden');
 
-    $('.contentWrapper').eq(i-1).addClass('showing');
+    $('.contentWrapper').eq(i - 1).addClass('showing');
   }, 750, val);
 }
 var getUrlParameter = function getUrlParameter(sParam) {
