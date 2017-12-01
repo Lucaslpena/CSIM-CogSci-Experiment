@@ -174,6 +174,7 @@
     $('.countdown').show();
     $('.inducement').text(s);
     $('.segueButton').prop("disabled", true);
+                        // TODO -- make this automatic??!?!?!?!!?!?!?!??!! segue!
     $('.countdown').timeTo(inducementTime, function () {
       $('.segueButton').prop("disabled", false);
       $('.countdown').hide();
