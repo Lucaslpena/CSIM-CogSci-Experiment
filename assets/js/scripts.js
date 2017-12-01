@@ -44,7 +44,7 @@
 
   var currentExam = 0;
   var currentId = 0;
-  var currentShowing = 11;
+  var currentShowing = 0;
 
   var inducement_sentences;
 
@@ -57,17 +57,17 @@
   var sketchpad7; // page 9
   var sketchpad8; // page 10
 
-  var shape1= "shapes_01_true.png";
-  var shape2= "shapes_02_true.png";
-  var shape3= "shapes_03_true.png";
-  var shape4= "shapes_04_true.png";
-  var shape5= "shapes_05_false.png";
-  var shape6= "shapes_06_false.png";
-  var shape7= "shapes_07_false.png";
-  var shape8= "shapes_08_false.png";
-  var shape9= "shapes_09_false.png";
-  var shape10= "shapes_10_true.png";
-  var shape11= "shapes_11_false.png";
+  var shape1 = "shapes_01_true.png";
+  var shape2 = "shapes_02_true.png";
+  var shape3 = "shapes_03_true.png";
+  var shape4 = "shapes_04_true.png";
+  var shape5 = "shapes_05_false.png";
+  var shape6 = "shapes_06_false.png";
+  var shape7 = "shapes_07_false.png";
+  var shape8 = "shapes_08_false.png";
+  var shape9 = "shapes_09_false.png";
+  var shape10 = "shapes_10_true.png";
+  var shape11 = "shapes_11_false.png";
 
 
   var test_order1 = [shape6, shape11, shape10, shape8, shape3, shape7, shape1, shape9];
@@ -77,6 +77,10 @@
   var test_order5 = [shape6, shape9, shape11, shape4, shape1, shape3, shape5, shape7];
   var test_order6 = [shape7, shape8, shape9, shape3, shape1, shape6, shape11, shape2];
 
+  var tests = [test_order1, test_order2, test_order3, test_order4, test_order5, test_order6];
+
+  var currentTest;
+  var testIndex;
   var practiceTime = 5;
   var drawingTime = 5;
   var preppingTime = 5;
@@ -89,9 +93,17 @@
     console.log(currentExam);
     currentId = getUrlParameter('id');
     console.log(currentId);
-    seedSave();
+
     inducement_sentences = inducements[mappingArray[currentExam]];
     console.log(inducement_sentences);
+
+    testIndex = ((Math.floor(Math.random() * 6) + 1) - 1);
+    currentTest = tests[testIndex];
+
+    console.log("testindex: ", testIndex);
+    console.log("tests: ", currentTest);
+
+    seedSave();
   });
 
 
@@ -121,15 +133,18 @@
       strokes: val
     });
   }
-  function seedSave(){
+
+  function seedSave() {
     var timestamp = new Date();
     firebase.database().ref('logging/' + currentId).set({
       exam: mappingArray[currentExam],
-      startTime: timestamp.toUTCString()
-    }).then(function(value) {
+      startTime: timestamp.toUTCString(),
+      motorOrder: currentTest
+    }).then(function (value) {
       console.log(value);
       console.log('seeded wrote');
-    });;
+    });
+    ;
   }
 
   function controller(val) {
@@ -137,7 +152,7 @@
     if (val < 5) {
       console.log("intro.. and setup");
     }
-    else if ( ((val >= 5) && ( val <= 10)) || (( val >= 16 ) && ( val <= 21 )) ) {
+    else if (((val >= 5) && ( val <= 10)) || (( val >= 16 ) && ( val <= 21 ))) {
       console.log("inducement first section!");
       var sen = inducement_sentences[0];
       inducement_sentences.shift();
@@ -145,18 +160,24 @@
         setNewInducement(s);
       }, 750, sen);
     }
-    else if( ((val > 11) && ( val < 16)) || ( (val > 23) && ( val < 28) ) ) {
-     newDrawing();
+    else if (((val > 11) && ( val < 16)) || ( (val > 23) && ( val < 28) )) {
+      newDrawing();
     }
     else {
       console.log("lost af");
     }
   };
 
-  function newDrawing(){
-
+  function newDrawing() {
     $('.countdown').show();
     console.log('drawing');
+    var trace = currentTest[0];
+    setTimeout(function (i) {
+      console.log($('.showing').find('canvas'));
+      $('.showing').find('canvas').css("background-image", "url('../assets/images/" + i + "')");
+    }, 750, trace);
+    currentTest.splice();
+
     $('.countdown').timeTo(practiceTime, function () {
       sketches[0].whipe();
       $('.showing').find('p').text("Now that practice is over you will have 20 seconds to draw the geometric shape without lifting the pen and without tracing the same line more than once. Get ready!");
@@ -172,17 +193,17 @@
     setTimeout(function () {
       console.log("drawing - done");
       console.log(sketches[0].strokes.length);
-      var page = currentShowing < 16 ? currentShowing-12 : currentShowing-19;
+      var page = currentShowing < 16 ? currentShowing - 12 : currentShowing - 19;
       saveData(page, sketches[0].strokes.length);
       sketches.shift(); //pop from front :D
-      //segue();
-    },(preppingTime + practiceTime + drawingTime)*1000);
+      segue();
+    }, (preppingTime + practiceTime + drawingTime) * 1000);
   };
   function setNewInducement(s) {
     $('.countdown').show();
     $('.inducement').text(s);
     $('.segueButton').prop("disabled", true);
-                        // TODO -- make this automatic??!?!?!?!!?!?!?!??!! segue!
+    // TODO -- make this automatic??!?!?!?!!?!?!?!??!! segue!
     $('.countdown').timeTo(inducementTime, function () {
       $('.segueButton').prop("disabled", false);
       $('.countdown').hide();
@@ -196,10 +217,10 @@
     setTimeout(function (i) {
       $('.contentWrapper').eq(i).removeClass('hiding');
       $('.contentWrapper').eq(i).addClass('hidden');
-
       $('.contentWrapper').eq(i + 1).addClass('showing');
     }, 750, val);
   }
+
   function animateBackward(val) {
     $('.contentWrapper').eq(val).removeClass('showing');
     $('.contentWrapper').eq(val).addClass('hiding');
@@ -211,6 +232,7 @@
       $('.contentWrapper').eq(i - 1).addClass('showing');
     }, 750, val);
   }
+
   var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = decodeURIComponent(window.location.search.substring(1)),
       sURLVariables = sPageURL.split('&'),
@@ -227,7 +249,7 @@
   };
 
   var width = window.innerWidth;
-  console.log("window width", width );
+  console.log("window width", width);
 
   sketchpad1 = new Sketchpad({
     element: ('#sketchpadPage3'),
