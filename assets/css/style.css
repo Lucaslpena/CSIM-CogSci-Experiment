@@ -637,7 +637,7 @@ iframe {
   min-height: 50vh; }
 
 canvas {
-  background: url(/assets/images/shapes_01_true.png) #F7F6F0;
+  background: url(/assets/images/shapes_01_true.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center; }
