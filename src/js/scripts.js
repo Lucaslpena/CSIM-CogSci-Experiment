@@ -36,7 +36,7 @@
 
   var currentExam = 0;
   var currentId = 0;
-  var currentShowing = 0;
+  var currentShowing = 11;
 
   var inducement_sentences;
 
