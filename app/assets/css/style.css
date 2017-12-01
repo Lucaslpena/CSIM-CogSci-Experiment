@@ -611,7 +611,7 @@ body:after {
 
 .content {
   max-width: 100rem;
-  padding: 25px;
+  padding: 10px;
   text-align: left;
   animation-name: reveal-text;
   animation-iteration-count: 1;
@@ -636,9 +636,15 @@ iframe {
   width: 80vw;
   min-height: 50vh; }
 
+canvas {
+  background: url(/assets/images/shapes_01_true.png) #F7F6F0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; }
+
 @media only screen and (min-width: 768px) {
   .content {
-    padding: 50px; }
+    padding: 20px; }
   .contact {
     max-width: 40rem; } }
 

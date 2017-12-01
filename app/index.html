@@ -17,6 +17,7 @@
 
   <script src="assets/components/modernizr/modernizr.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/components/sketchpad/scripts/sketchpad.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.2/csshake.min.css" rel="stylesheet">
 
 </head>
@@ -28,15 +29,15 @@
 <main class="main" role="main">
 
   <!--INTRO-->
-  <div class="contentWrapper hidden">
+  <div class="contentWrapper showing">
     <div class="content">
       <div>
-        <h1>Hi!</h1>
-        <p>Thanks for participating in this experiment. To get started, we need to know that you are ok with this project, and for that we need you to sign the following consent form. All of your answers will be completely anonymous and will only be used for our class’ research project.</p>
+        <h1>Hola!</h1>
+        <p>Gracias por participar en este experimento. Para empezar, necesitamos saber que estás de acuerdo con formar parte de este proyecto, y para eso necesitamos que nos des tu consentimiento por escrito firmando la siguiente autorización.<br><br> Todas tus respuestas serán completamente anónimas y sólo serán usadas para nuestro proyecto de investigación.</p>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">Consent Form</button>
+      <button class="segueButton btn btn--stripe">FIRMAR AUTORIZACIÓN</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -47,18 +48,19 @@
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">FORWARD</button>
+      <button class="segueButton btn btn--stripe">Estoy de acuerdo</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
-        <h1>Consent Demographics</h1>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdghPVlclT1sby8X9fcL6-WLJ-xSx7t7bxw-OfbauCXrdP5oQ/viewform?embedded=true">Loading...</iframe>
+        <h1>Índice Demográfico.</h1>
+        <p>Empecemos por unas preguntas demográficas sencillas.</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSez6-7sjoA6be57xDdR9PKBDBwdw1x8ATXP8zbTVN5q1uhYEg/viewform?embedded=true"marginheight="0" marginwidth="0">Loading...</iframe>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">FORWARD</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
 
@@ -67,23 +69,26 @@
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
-        <h1>The Experiment</h1>
-        <p>We are CSIM students researching on [motor skills] and we’re running a [10 mins] game/competition. [We want you to be motivated to do the best you can on this game], so we’re giving you 1€ for participating and 50-40-30€ to whoever can win the game in less than [5min]</p>
+        <h1>El experimento.</h1>
+        <p>Somos estudiantes del Máster Sistemas Cognitivos y Media Interactivos (CSIM) de la UPF. Estamos investigando [las aptitudes motoras] con un pequeño experimento seguido de un juego de [10 minutos].
+        <br><br>
+          Queremos que permanezcas motivado/a y lo hagas lo mejor posible. Por eso, al acabar, te daremos 1€ por participar y uno de los tres premios de 50€ o 30€ o 15€ si consigue [ganar el juego] en menos de 5 minutos!</p>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">Next</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
-        <h1>The Experiment</h1>
-        <p>To begin with, we are going to show you a series of 6 statements. Please read each statement carefully, think about it and try to understand it for at least 1 minute. After you’ve thought about it you can go to the next statement.</p>
+        <h1>El experimento.</h1>
+        <p>Para empezar, vamos a mostrarte 6 frases, una detrás de otra.<br>
+          Por favor, lee atentamente cada una de las frases durante un minuto. Lee y vuelve a leer la frase una y otra vez con empeño para realmente creertela e imaginarla. Concentra toda tu atención en la frase e intenta descartar otros pensamientos que no tengan nada que ver, como podría ser "de qué va esto?". Esfuérzate en hacer esto con cada una de las frases hasta que se te muestre la siguiente frase.</p>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">EMPECEMOS!</button>
     </div>
   </div>
 
@@ -97,7 +102,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -108,7 +113,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -119,7 +124,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -130,7 +135,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -141,7 +146,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -152,24 +157,30 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
 
-  <!--The Game-->
-  <div class="contentWrapper showing">
+  <!--The Game showing11-->
+  <div class="contentWrapper hidden">
     <div class="content">
       <div>
-        <h1>The Game</h1>
-        <p>Thanks for completely the first stage! Now we are going to play a game. You'll have to draw a geometric shapes.  You will have 30 seconds of pracitce then 5 seconds pause and then 10 seconds to finally draw without lifting the pen and without tracing the same line more than once in less than 5 minutes. There will be 8 shapes of different difficulties, you'll only have to complete 4 on this first stage. At the end, there are 3 prices you can win! Complete 5 shapes you'll win 15 €<br>7 shapes = win 30 € !<br>8 shapes = win 50 € !</p>
+        <h1>El juego.</h1>
+        <p>TGracias por completar esta primera fase. Ahora vamos a jugar!
+        <br><br>
+          Tienes que dibujar la figura geométrica que te será mostrada en pantalla, sin levantar el lápiz de la pantalla y sin pasar por la misma línea mas de una vez, en menos de [1 minuto].
+          <br><br>
+          Va a haber 8 figuras de diferentes niveles de dificultad. En esta primera parte del juego sólo tendrás que completar 4. Podrás ganar un premio si, al final del juego, has sido capaz de completar mínimo 5 figuras con las condiciones indicadas!
+          <br><br>
+          Completa 5 figuras y gana 15 €<br>
+          7 figuras = gana 30 € !<br>
+          8 figuras = gana 50 € !</p>
       </div>
     </div>
     <div class="segueWrapper">
-      <button class="segueButton btn btn--stripe">Ready?</button>
+      <button class="segueButton btn btn--stripe">PREPARADO/A?</button>
     </div>
   </div>
-
-
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
@@ -183,7 +194,6 @@
       <div class="countdown"></div>
     </div>
   </div>
-
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
@@ -196,7 +206,6 @@
       <div class="countdown"></div>
     </div>
   </div>
-
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
@@ -209,7 +218,6 @@
       <div class="countdown"></div>
     </div>
   </div>
-
   <div class="contentWrapper hidden">
     <div class="content">
       <div>
@@ -224,7 +232,19 @@
   </div>
 
 
-
+  <!--Experiment pt 2-->
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>El experimento. 2ª parte.</h1>
+        <p>Igual que hicimos antes, vamos a mostrarte 6 frases, una detrás de otra.
+          <br>Por favor, lee atentamente cada una de las frases durante un minuto. Lee y vuelve a leer la frase una y otra vez con empeño para realmente creertela e imaginarla. Concentra toda tu atención en la frase e intenta descartar otros pensamientos que no estén relacionados. Esfuérzate en hacer esto con cada una de las frases hasta que se te muestre la siguiente frase.</p>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">EMPECEMOS!</button>
+    </div>
+  </div>
   <!--Inducement pt 2-->
   <div class="contentWrapper hidden">
     <div class="content">
@@ -234,7 +254,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -245,7 +265,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -256,7 +276,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -267,7 +287,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -278,7 +298,7 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
   <div class="contentWrapper hidden">
@@ -289,9 +309,129 @@
     </div>
     <div class="segueWrapper">
       <div class="countdown"></div>
-      <button class="segueButton btn btn--stripe">Let's Start!</button>
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
     </div>
   </div>
+
+  <!--The Game pt 2-->
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>El juego. 2ª parte.</h1>
+        <p>TGracias por completar esta primera fase. Ahora vamos a jugar!
+          <br><br>
+          Tienes que dibujar la figura geométrica que te será mostrada en pantalla, sin levantar el lápiz de la pantalla y sin pasar por la misma línea mas de una vez, en menos de [1 minuto].
+          <br><br>
+          Va a haber 8 figuras de diferentes niveles de dificultad. En esta primera parte del juego sólo tendrás que completar 4. Podrás ganar un premio si, al final del juego, has sido capaz de completar mínimo 5 figuras con las condiciones indicadas!
+          <br><br>
+          Completa 5 figuras y gana 15 €
+          7 figuras = gana 30 € !
+          8 figuras = gana 50 € !</p>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">PREPARADO/A?</button>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>Drawing Exercise #5</h1>
+        <p>Now is practice. After you'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
+        <canvas id="sketchpadPage7">
+        </canvas>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <div class="countdown"></div>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>Drawing Exercise #6</h1>
+        <p>You'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
+        <canvas id="sketchpadPage8"></canvas>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <div class="countdown"></div>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>Drawing Exercise #7</h1>
+        <p>Now is practice. After you'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
+        <canvas id="sketchpadPage9"></canvas>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <div class="countdown"></div>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>Drawing Exercise #8</h1>
+        <p>Now is practice. After you'll have to draw a geometric shape without lifting the pen and without tracing the same line more than once.</p>
+        <canvas id="sketchpadPage10"></canvas>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <div class="countdown"></div>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>El experimento.</h1>
+        <p>Somos estudiantes del Máster Sistemas Cognitivos y Media Interactivos (CSIM) de la UPF. Estamos investigando [las aptitudes motoras] con un pequeño experimento seguido de un juego de [10 minutos].
+          <br><br>
+          Queremos que permanezcas motivado/a y lo hagas lo mejor posible. Por eso, al acabar, te daremos 1€ por participar y uno de los tres premios de 50€ o 30€ o 15€ si consigue [ganar el juego] en menos de 5 minutos!</p>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
+    </div>
+  </div>
+
+
+  <!--FAD+ Test-->
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>FAD+ Test</h1>
+        <p>Gracias por completar el juego! Para finalizar, nos gustaría que completases el siguiente formulario. Una vez acabado haz click en el botón ´FIN´ y dirigete a la salida. </p>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">SIGUIENTE</button>
+    </div>
+  </div>
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>FAD+ Test</h1>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdYmr6s0Y1zVpsfppX-tRTpY81jJ7kE_E-We1g-oX7noJ9D7Q/viewform?embedded=true"  frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+    </div>
+    <div class="segueWrapper">
+      <button class="segueButton btn btn--stripe">FIN!</button>
+    </div>
+  </div>
+
+  <!--FIN!-->
+  <div class="contentWrapper hidden">
+    <div class="content">
+      <div>
+        <h1>GRACIAS!! ☺️🤓</h1>
+        <h1>Muchas gracias por participar en este proyecto. Ya puedes dirigirte a la salida, si tienes alguna pregunta o te gustaria saber más acerca de este proyecto, no dudes en preguntar!</h1>
+      </div>
+    </div>
+  </div>
+
+
 
 
 </main>
@@ -312,7 +452,6 @@
   };
   firebase.initializeApp(config);
 </script>
-<script src="assets/components/sketchpad/scripts/sketchpad.js"></script>
 <script src="assets/js/scripts.min.js"></script>
 <script src="assets/components/timeTo/jquery.time-to.min.js"></script>
 
