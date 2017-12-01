@@ -175,7 +175,7 @@
       var page = currentShowing < 16 ? currentShowing-12 : currentShowing-19;
       saveData(page, sketches[0].strokes.length);
       sketches.shift(); //pop from front :D
-      segue();
+      //segue();
     },(preppingTime + practiceTime + drawingTime)*1000);
   };
   function setNewInducement(s) {
