@@ -174,7 +174,7 @@
     var trace = currentTest[0];
     setTimeout(function (i) {
       console.log($('.showing').find('canvas'));
-      $('.showing').find('canvas').css("background-image", "url('../assets/images/" + i + "')");
+      $('.showing').find('canvas').css("background-image", "url('./assets/images/" + i + "')");
     }, 750, trace);
     currentTest.splice();
 
