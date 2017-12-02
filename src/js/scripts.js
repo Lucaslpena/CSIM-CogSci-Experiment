@@ -8,23 +8,29 @@
    */
 
   var mappingArray = ['FC', 'DC', 'CF', 'CD'];
-  var mappingInducements_F = ["FreeWill is REAL #1", "FreeWill is REAL #2", "FreeWill is REAL #3", "FreeWill is REAL #4", "FreeWill is REAL #5", "FreeWill is REAL #6"];
+  var mappingInducements_F = [
+    "1. \"El ser humano esta dotado de libre albedrio, y puede elegir entre el bien y el mal. si solo puede actuar bien o solo puede actuar mal, no sera mas que una naranja mecanica\"",
+    "2.\"Los humanos no solo son libres sino que están condenados a ser libres. Condenados a crearse a ellos mismos y su propia realidad.\"",
+    "3. \"En cualquier momento la decisión que tome puede cambiar el curso de su vida para siempre\".",
+    "4. \"El hombre es lo que hace de sí mismo.\"",
+    "5. \"Usted dice: yo no soy libre. Pero he subido y bajado el brazo. Todo el mundo entiende que esta respuesta ilógica es una prueba irrefutable de la libertad.\"",
+    "5. \" Soy el amo de mi destino: Soy el capitán de mi alma.\""];
 
   var mappingInducements_D = [
-    "1.   Circuits and determining molecular processes exist outside conscious thought. They [...] reinforce the neurohormonal loops that regulate consequent emotional response. [...] The hidden preparation of mental activity gives the illusion of free will. We make decisions for reasons we often sense only vaguely, and seldom if ever understand fully.",
-    "2.  We like to believe that we do things we do because we consciously decide to do them. Recent scientific research in psychology, however, demonstrates instances when our actions can be caused by things of which we are not aware.",
-    "3.  \"tú\", tus alegrías y tus penas, tus recuerdos y tus ambiciones, tu sentido de la identidad y voluntad personales, no son en el fondo más que la conducta de unas células nerviosas y de sus moléculas asociadas. ",
-    "4. \"The initial configuration of the universe may have been chosen by God, or it may itself have been determined by the laws of science. In either case, it would seem that everything in the universe would then be determined by evolution according to the laws of science, so it is difficult to see how we can be masters of our fate.\"",
-    "5. \"You will say that I feel free. This is an illusion, which may be compared to that of the fly in the fable, who, upon the pole of a heavy carriage, applauded himself for directing its course. Man, who thinks himself free, is a fly who imagines he has power to move the universe, while he is himself unknowingly carried along by it.\"",
-    "6. I do not at all believe in human freedom in the philosophical sense. Everybody acts not only under external compulsion but also in accordance with inner necessity."];
+    "1.  \"No hay en la mente ninguna voluntad absoluta o libre, sino que la mente está determinada a querer esto o aquello por una causa, que también es determinada por otra, y ésta a su vez por otra, y así hasta el infinito.\"",
+    "2.  \"Nuestras elecciones están dictadas por nuestro deseos y necesidades; la libertad de elección es una ilusión, ya que sólo obedecemos a deseos establecidos por procesos que no controlamos.\"",
+    "3. \"tú, tus alegrías y tus penas, tus recuerdos y tus ambiciones, tu sentido de la identidad y voluntad personales, no son en el fondo más que la conducta de unas células nerviosas y de sus moléculas asociadas.\"",
+    "4.\"Los hombres se equivocan, en cuanto piensan que son libres; y esta opinión sólo consiste en que son conscientes de sus acciones e ignorantes de las causas por las que son determinados. (...) Su idea de la libertad es, pues, esta: que no conocen causa alguna de sus acciones.\"",
+    "5. \"No creo, en el sentido filosófico del término, en la libertad del hombre. Cada uno obra no sólo por una coacción exterior, sino también por una necesidad interior.\"",
+    "6. \"El hombre no es libre en ninguno de los instantes de su vida. No es dueño de su configuración, la cual la ha recibido de la naturaleza. No es dueño de sus ideas o de las modificaciones de su cerebro, que se deben a causas que, a pesar suyo y sin saberlo, actúan continuamente sobre él.\""];
 
   var mappingInducements_C = [
     "1. La ciudad de Oklahoma es la ciudad mas grande (en superficie) del mundo, 1.607 km².",
-    "2. El portero se vistió de rojo. ",
+    "2. El portero se vistió de rojo.",
     "3. Potter escribió numerosas sátiras acerca del Cinismo Social.",
-    "4. Japón fue aceptado por las naciones unidas casi catorce años después de Pearl Harbor. ",
-    "5. El Oriente Express viaja entre París y Estanbul. ",
-    "6. La principal planta de Boeing da trabajo a 35.000 personas. "];
+    "4. Japón fue aceptado por las naciones unidas casi catorce años después de Pearl Harbor.",
+    "5. El Oriente Express viaja entre París y Estanbul.",
+    "6. La principal planta de Boeing da trabajo a 35.000 personas."];
 
 
   var inducements = {
@@ -112,6 +118,7 @@
   });
 
   function segue() {
+    $(window).scrollTop(0);
     animateForward(currentShowing);
     currentShowing += 1;
     controller(currentShowing);
