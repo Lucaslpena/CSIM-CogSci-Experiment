@@ -81,10 +81,10 @@
 
   var currentTest;
   var testIndex;
-  var practiceTime = 5;
-  var drawingTime = 5;
-  var preppingTime = 5;
-  var inducementTime = 1;
+  var practiceTime = 2;
+  var drawingTime = 2;
+  var preppingTime = 2;
+  var inducementTime = 2;
 
   var sketches;
 
@@ -152,7 +152,7 @@
     if (val < 5) {
       console.log("intro.. and setup");
     }
-    else if (((val >= 5) && ( val <= 10)) || (( val >= 16 ) && ( val <= 21 ))) {
+    else if (((val >= 5) && ( val <= 10)) || (( val >= 17 ) && ( val <= 22 ))) {
       console.log("inducement first section!");
       var sen = inducement_sentences[0];
       inducement_sentences.shift();
@@ -172,18 +172,19 @@
     $('.countdown').show();
     console.log('drawing');
     var trace = currentTest[0];
+    currentTest.shift();
+    console.log("drawing", trace);
     setTimeout(function (i) {
       console.log($('.showing').find('canvas'));
       $('.showing').find('canvas').css("background-image", "url('./assets/images/" + i + "')");
     }, 750, trace);
-    currentTest.splice();
 
     $('.countdown').timeTo(practiceTime, function () {
       sketches[0].whipe();
-      $('.showing').find('p').text("Now that practice is over you will have 20 seconds to draw the geometric shape without lifting the pen and without tracing the same line more than once. Get ready!");
+      $('.showing').find('p').text("El tiempo de practica se ha terminado. Ahora solo tienes una oportunidad para hacer el dibujo final");
       $('.countdown').timeTo(preppingTime, function () {
         sketches[0].whipe();
-        $('.showing').find('p').text("Draw!");
+        $('.showing').find('p').text("A dibujar!");
         $('.countdown').timeTo(drawingTime, function () {
           console.log("done");
         });
@@ -208,6 +209,9 @@
       $('.segueButton').prop("disabled", false);
       $('.countdown').hide();
     });
+    setTimeout(function(){
+      segue();
+    }, inducementTime);
   };
 
   function animateForward(val) {
