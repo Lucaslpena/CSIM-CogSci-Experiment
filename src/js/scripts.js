@@ -79,10 +79,10 @@
 
   var currentTest;
   var testIndex;
-  var practiceTime = 2;
-  var drawingTime = 2;
-  var preppingTime = 2;
-  var inducementTime = 2;
+  var practiceTime = 45;
+  var drawingTime = 10;
+  var preppingTime = 20;
+  var inducementTime = 45;
 
   var sketches;
 
@@ -210,7 +210,7 @@
     });
     setTimeout(function(){
       segue();
-    }, inducementTime);
+    }, inducementTime * 1000);
   };
 
   function animateForward(val) {
