@@ -87,9 +87,8 @@
 
   var currentTest;
   var testIndex;
-  var practiceTime = 45;
-  var drawingTime = 10;
-  var preppingTime = 20;
+  var practiceTime = 20;
+  var drawingTime = 5;
   var inducementTime = 45;
 
   var sketches;
@@ -187,14 +186,11 @@
     }, 750, trace);
 
     $('.countdown').timeTo(practiceTime, function () {
-      sketches[0].whipe();
-      $('.showing').find('p').text("El tiempo de practica se ha terminado. Ahora solo tienes una oportunidad para hacer el dibujo final");
-      $('.countdown').timeTo(preppingTime, function () {
         sketches[0].whipe();
         $('.showing').find('p').text("A dibujar!");
+        $('.showing').find('p').css('color', 'green');
         $('.countdown').timeTo(drawingTime, function () {
           console.log("done");
-        });
       });
     });
 
@@ -205,7 +201,7 @@
       saveData(page, sketches[0].strokes.length);
       sketches.shift(); //pop from front :D
       segue();
-    }, (preppingTime + practiceTime + drawingTime) * 1000);
+    }, (practiceTime + drawingTime) * 1000);
   };
   function setNewInducement(s) {
     $('.countdown').show();
