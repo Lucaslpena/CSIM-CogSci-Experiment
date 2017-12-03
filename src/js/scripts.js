@@ -83,6 +83,10 @@
   var drawingTime = 5;
   var inducementTime = 45;
 
+  // var practiceTime = 10;
+  // var drawingTime = 5;
+  // var inducementTime = 2;
+
   var sketches;
 
   $(function () {
@@ -129,6 +133,8 @@
     var key = "strokeCount" + num;
     firebase.database().ref('logging/' + currentId + '/drawStroke/' + num).set({
       strokes: val
+    }).then(function (value) {
+      console.log("stroke count: ", val);
     });
   }
 
@@ -173,15 +179,31 @@
     currentTest.shift();
     console.log("drawing", trace);
     setTimeout(function (i) {
-      console.log($('.showing').find('canvas'));
+      // console.log($('.showing').find('canvas'));
       $('.showing').find('canvas').css("background-image", "url('./assets/images/" + i + "')");
+
+      var canvas = $('.showing').find('canvas')[0];
+      var ctx = canvas.getContext("2d");
+      ctx.font = "28px Palanquin";
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.fillText("Ahora puedes practicar. Cuando se acabe el tiempo de práctica solo ", canvas.width/2, canvas.height * .08);
+      ctx.fillText("tendras una oportunidad para dibujar la figura final en x segundos", canvas.width/2, canvas.height * .18);
+
     }, 750, trace);
+
 
     $('.countdown').timeTo(practiceTime, function () {
         sketches[0].whipe();
-        $('.showing').find('p').text("A dibujar!");
-        $('.showing').find('p').css('color', 'green');
-        $('.countdown').timeTo(drawingTime, function () {
+          var canvas = $('.showing').find('canvas')[0];
+          var ctx = canvas.getContext("2d");
+          ctx.font = "30px Palanquin";
+          ctx.fillStyle = "green";
+          ctx.textAlign = "center";
+          ctx.fillText("Dibujo Final!", canvas.width/2, canvas.height * .1);
+
+
+      $('.countdown').timeTo(drawingTime, function () {
           console.log("done");
       });
     });
