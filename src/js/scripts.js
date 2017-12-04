@@ -42,7 +42,7 @@
 
   var currentExam = 0;
   var currentId = 0;
-  var currentShowing = 0;
+  var currentShowing = 11;
 
   var inducement_sentences;
 
@@ -79,7 +79,7 @@
 
   var currentTest;
   var testIndex;
-  var practiceTime = 20;
+  var practiceTime = 30;
   var drawingTime = 10;
   var inducementTime = 40;
 
@@ -173,6 +173,10 @@
   };
 
   function newDrawing() {
+    $(".clearButton").on("click", function () {
+      sketches[0].undo();
+    });
+
     $('.countdown').show();
     console.log('drawing');
     var trace = currentTest[0];
@@ -194,6 +198,7 @@
 
 
     $('.countdown').timeTo(practiceTime, function () {
+      $(".clearButton").hide();
         sketches[0].whipe();
           var canvas = $('.showing').find('canvas')[0];
           var ctx = canvas.getContext("2d");
@@ -214,7 +219,7 @@
       var page = currentShowing < 16 ? currentShowing - 12 : currentShowing - 19;
       saveData(page, sketches[0].strokes.length);
       sketches.shift(); //pop from front :D
-      segue();
+      //segue();
     }, (practiceTime + drawingTime) * 1000);
   };
   function setNewInducement(s) {
