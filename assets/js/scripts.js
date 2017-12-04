@@ -88,8 +88,8 @@
   var currentTest;
   var testIndex;
   var practiceTime = 20;
-  var drawingTime = 5;
-  var inducementTime = 45;
+  var drawingTime = 10;
+  var inducementTime = 40;
 
   // var practiceTime = 10;
   // var drawingTime = 5;
