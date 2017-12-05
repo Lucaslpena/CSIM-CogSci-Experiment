@@ -42,7 +42,7 @@
 
   var currentExam = 0;
   var currentId = 0;
-  var currentShowing = 11;
+  var currentShowing = 0;
 
   var inducement_sentences;
 
@@ -79,13 +79,13 @@
 
   var currentTest;
   var testIndex;
-  // var practiceTime = 35;
-  // var drawingTime = 10;
-  // var inducementTime = 40;
-
-  var practiceTime = 10;
+  var practiceTime = 35;
   var drawingTime = 10;
-  var inducementTime = 2;
+  var inducementTime = 40;
+
+  // var practiceTime = 10;
+  // var drawingTime = 10;
+  // var inducementTime = 2;
 
   var sketches;
 
