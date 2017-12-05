@@ -63,17 +63,12 @@
   var shape6 = "shapes_06_false.png";
   var shape7 = "shapes_07_false.png";
   var shape8 = "shapes_08_false.png";
-  var shape9 = "shapes_09_false.png";
-  var shape10 = "shapes_10_true.png";
-  var shape11 = "shapes_11_false.png";
 
 
-  var test_order1 = [shape6, shape11, shape10, shape8, shape3, shape7, shape1, shape9];
-  var test_order2 = [shape5, shape9, shape10, shape4, shape3, shape7, shape2, shape6];
-  var test_order3 = [shape1, shape2, shape7, shape10, shape11, shape6, shape5, shape3];
-  var test_order4 = [shape7, shape3, shape2, shape10, shape1, shape11, shape8, shape4];
-  var test_order5 = [shape6, shape9, shape11, shape4, shape1, shape3, shape5, shape7];
-  var test_order6 = [shape7, shape8, shape9, shape3, shape1, shape6, shape11, shape2];
+  var test_order1 = [shape8, shape6, shape1, shape3, shape4, shape7, shape5, shape2];
+  var test_order2 = [shape4, shape7, shape1, shape8, shape5, shape3, shape2, shape6];
+  var test_order3 = [shape1, shape3, shape7, shape6, shape8, shape2, shape5, shape4];
+  var test_order4 = [shape7, shape6, shape2, shape1, shape4, shape8, shape3, shape5];
 
   var tests = [test_order1, test_order2, test_order3, test_order4, test_order5, test_order6];
 
@@ -98,7 +93,7 @@
     inducement_sentences = inducements[mappingArray[currentExam]];
     console.log(inducement_sentences);
 
-    testIndex = ((Math.floor(Math.random() * 6) + 1) - 1);
+    testIndex = ((Math.floor(Math.random() * 4) + 1) - 1);
     currentTest = tests[testIndex];
 
     console.log("testindex: ", testIndex);
