@@ -79,13 +79,13 @@
 
   var currentTest;
   var testIndex;
-  var practiceTime = 30;
-  var drawingTime = 10;
-  var inducementTime = 40;
+  // var practiceTime = 35;
+  // var drawingTime = 10;
+  // var inducementTime = 40;
 
-  // var practiceTime = 10;
-  // var drawingTime = 5;
-  // var inducementTime = 2;
+  var practiceTime = 10;
+  var drawingTime = 10;
+  var inducementTime = 2;
 
   var sketches;
 
@@ -173,6 +173,7 @@
   };
 
   function newDrawing() {
+    $(".clearButton").show();
     $(".clearButton").on("click", function () {
       sketches[0].undo();
     });
@@ -219,7 +220,7 @@
       var page = currentShowing < 16 ? currentShowing - 12 : currentShowing - 19;
       saveData(page, sketches[0].strokes.length);
       sketches.shift(); //pop from front :D
-      //segue();
+      segue();
     }, (practiceTime + drawingTime) * 1000);
   };
   function setNewInducement(s) {
