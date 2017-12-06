@@ -78,7 +78,7 @@
   var test_order3 = [shape1, shape3, shape7, shape6, shape8, shape2, shape5, shape4];
   var test_order4 = [shape7, shape6, shape2, shape1, shape4, shape8, shape3, shape5];
 
-  var tests = [test_order1, test_order2, test_order3, test_order4, test_order5, test_order6];
+  var tests = [test_order1, test_order2, test_order3, test_order4];
 
   var currentTest;
   var testIndex;
